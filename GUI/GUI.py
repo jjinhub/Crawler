@@ -2,6 +2,7 @@ import os
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 class MainWindow(QMainWindow):
     """
@@ -59,6 +60,38 @@ class MainWindow(QMainWindow):
         self.toolbar.addAction(start_tool)
         self.toolbar.addAction(stop_tool)
 
+    def frame(self):
+
+        # 메인 위젯 생성
+        main_widget = QWidget()
+        self.setCentralWidget(main_widget)
+
+        # 레이아웃 설정
+        main_layout = QVBoxLayout(main_widget)
+
+        left_frame = QFrame()
+        left_frame.setFrameShape(QFrame.Panel | QFrame.Sunken)
+        right_frame = QFrame()
+        right_frame.setFrameShape(QFrame.Panel | QFrame.Sunken)
+
+        left_layout = QVBoxLayout()
+        right_layout = QVBoxLayout()
+
+        button_1 = QPushButton("button_1")
+        button_2 = QPushButton("button_2")
+
+        left_layout.addWidget(button_1)
+        right_layout.addWidget(button_2)
+
+        left_frame.setLayout(left_layout)
+        right_frame.setLayout(right_layout)
+
+        spliter = QSplitter(Qt.Horizontal)
+        spliter.addWidget(left_frame)
+        spliter.addWidget(right_frame)
+
+        main_layout.addWidget(spliter)
+
     def initUI(self):
         """
         Main Window 초기 화면 설정
@@ -77,6 +110,10 @@ class MainWindow(QMainWindow):
 
         # 툴바 생성
         self.tool_bar()
+
+        # 화면 프레임 분할
+        self.frame()
+
 
 if __name__ == "__main__":
 

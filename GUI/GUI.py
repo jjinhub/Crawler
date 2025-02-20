@@ -79,15 +79,19 @@ class MainWindow(QMainWindow):
         left_layout = QVBoxLayout()
         right_layout = QVBoxLayout()
 
+        # 좌우 버튼 생성
         button_1 = QPushButton("button_1")
         button_2 = QPushButton("button_2")
 
+        # 레이아웃에 버튼 추가
         left_layout.addWidget(button_1)
         right_layout.addWidget(button_2)
 
+        # 프레임별 레이아웃 설정정
         left_frame.setLayout(left_layout)
         right_frame.setLayout(right_layout)
 
+        # 화면 분할
         spliter = QSplitter(Qt.Horizontal)
         spliter.addWidget(left_frame)
         spliter.addWidget(right_frame)

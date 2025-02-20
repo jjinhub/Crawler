@@ -66,14 +66,16 @@ class MainWindow(QMainWindow):
         main_widget = QWidget()
         self.setCentralWidget(main_widget)
 
-        # 레이아웃 설정
+        # 메인 레이아웃 생성
         main_layout = QVBoxLayout(main_widget)
 
+        # 좌우 프레임 생성
         left_frame = QFrame()
         left_frame.setFrameShape(QFrame.Panel | QFrame.Sunken)
         right_frame = QFrame()
         right_frame.setFrameShape(QFrame.Panel | QFrame.Sunken)
 
+        # 좌우 레이아웃 생성
         left_layout = QVBoxLayout()
         right_layout = QVBoxLayout()
 

@@ -1,5 +1,7 @@
+import os
 import sys
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 
 class MainWindow(QMainWindow):
     """
@@ -23,9 +25,44 @@ class MainWindow(QMainWindow):
         # 화면 가운데 맞춤
         qr.moveCenter(cp)
         self.move(qr.topLeft())
-    
-    def initUI(self):
 
+    def menu_bar(self):
+
+        # menuBar 메서드를 통해 QMenuBar 클래스의 인스턴스 생성
+        menubar = self.menuBar()
+
+        # addMenu 메서드를 사용하여 Setting라는 이름을 가진 QMenu 클래스의 인스턴스를 생성
+        setting_menu = menubar.addMenu("Setting")
+
+        # addAction 메서드를 사용하여 Option Menu가 클릭되었을 때, Start라는 텍스트의 QAction 인스턴스를 생성
+        # start_action = option_menu.addAction("Start")
+
+    def tool_bar(self):
+
+        # 툴바 생성
+        self.toolbar = self.addToolBar("ToolBar")
+        self.toolbar.setMovable(False)
+
+        # 버튼 생성
+        start_tool = QAction(QIcon("./img/start.png"), "&Start", self) # 시작 버튼
+        stop_tool = QAction(QIcon("./img/stop.png"), "&Stop", self) # 정지 버튼
+
+        # 단축키 설정
+        start_tool.setShortcut("Ctrl+Q") # 시작
+        stop_tool.setShortcut("Ctrl+W") # 정지
+
+        # 툴팁 설정
+        start_tool.setToolTip("Crawler Start") # 시작
+        stop_tool.setToolTip("Crawler Stop") # 정지
+
+        # 툴바에 버튼 추가
+        self.toolbar.addAction(start_tool)
+        self.toolbar.addAction(stop_tool)
+
+    def initUI(self):
+        """
+        Main Window 초기 화면 설정
+        """
         # 타이틀
         self.setWindowTitle("크롤러 GUI")
 
@@ -35,14 +72,11 @@ class MainWindow(QMainWindow):
         # 화면 중앙 배치
         self.center()
 
+        # 메뉴바 생성
+        self.menu_bar()
 
-
-        
-
-        # 창 크기
-        # self. setGeometry()
-    
-
+        # 툴바 생성
+        self.tool_bar()
 
 if __name__ == "__main__":
 

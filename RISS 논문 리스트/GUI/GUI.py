@@ -11,6 +11,18 @@ class MainWindow(QMainWindow):
         QMainWindow를 상속받아 Main Window를 생성
         """
         super().__init__()
+        self.initUI()
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def initUI(self):
+        self.setWindowTitle("크롤러 GUI") # GUI 타이틀
+        self.resize(1600, 900) # GUI 크기
+        self.center() # 화면 가운데 정렬
 
 if __name__ == "__main__":
 

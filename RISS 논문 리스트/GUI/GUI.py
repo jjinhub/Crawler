@@ -71,6 +71,7 @@ class MainWindow(QMainWindow):
         l_panel.setFixedWidth(300)  # 크기 고정
         left_layout = QVBoxLayout(l_panel)
 
+        # 검색어 입력 박스
         groupbox_1 = QGroupBox('검색어')
         form_layout = QFormLayout()
         groupbox_1.setLayout(form_layout)
@@ -79,6 +80,33 @@ class MainWindow(QMainWindow):
         content_1.setPlaceholderText("검색어를 입력하세요.")
         form_layout.addRow(content_1)
         left_layout.addWidget(groupbox_1)
+
+        # 정렬 기준 박스
+        groupbox_2 = QGroupBox('정렬 기준')
+
+        # 라디오 버튼 생성
+        radio1 = QRadioButton('정확도순')
+        radio2 = QRadioButton('인기도순')
+        radio3 = QRadioButton('연도순')
+        radio4 = QRadioButton('제목순')
+        radio5 = QRadioButton('저자순')
+        radio6 = QRadioButton('발행기관순')
+        radio1.setChecked(True)
+
+        # 라디오 버튼을 세로로 배치하는 레이아웃
+        vbox = QVBoxLayout()
+        vbox.addWidget(radio1)
+        vbox.addWidget(radio2)
+        vbox.addWidget(radio3)
+        vbox.addWidget(radio4)
+        vbox.addWidget(radio5)
+        vbox.addWidget(radio6)
+
+        # 레이아웃을 그룹박스에 설정
+        groupbox_2.setLayout(vbox)
+
+        # 레이아웃에 그룹박스 추가
+        left_layout.addWidget(groupbox_2)
 
         return l_panel
 

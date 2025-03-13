@@ -15,6 +15,12 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.initUI()
 
+    def load_stylesheet(self):
+        """QSS 스타일 파일을 로드하는 함수"""
+        with open("./qss/style.qss", "r", encoding="utf-8") as f:
+            stylesheet = f.read()
+            self.setStyleSheet(stylesheet)
+
     def center(self):
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
@@ -98,6 +104,7 @@ class MainWindow(QMainWindow):
     def initUI(self):
         self.setWindowTitle("크롤러 GUI") # GUI 타이틀
         self.resize(1600, 900) # GUI 크기
+        self.load_stylesheet()  # QSS 스타일 적용
         self.center() # 화면 가운데 정렬
         self.menu_bar() # 메뉴바 생성
         self.tool_bar() # 툴바 생성

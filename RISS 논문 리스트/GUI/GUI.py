@@ -108,6 +108,16 @@ class MainWindow(QMainWindow):
         # 레이아웃에 그룹박스 추가
         left_layout.addWidget(groupbox_2)
 
+        # 데이터 수집 개수 입력 박스
+        groupbox_3 = QGroupBox('데이터 수집 개수')
+        form_layout = QFormLayout()
+        groupbox_3.setLayout(form_layout)
+
+        content_3 = QLineEdit(groupbox_3)
+        content_3.setPlaceholderText("데이터 수집 개수를 입력하세요.")
+        form_layout.addRow(content_3)
+        left_layout.addWidget(groupbox_3)
+
         return l_panel
 
     def frame(self):

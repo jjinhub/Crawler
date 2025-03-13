@@ -17,3 +17,7 @@ QLineEdit {
     border-radius: 5px;
     padding: 5px;
 }
+
+QRadioButton {
+    font-weight: normal;
+}

@@ -34,6 +34,30 @@ class MainWindow(QMainWindow):
         self.toolbar = self.addToolBar("ToolBar")
         self.toolbar.setMovable(False) # 이동 금지
 
+        # 시작 버튼
+        start_tool = QAction(QIcon("./img/start.png"), "&Start", self)
+        start_tool.setShortcut("Ctrl+Q")
+        start_tool.setToolTip("Crawler Start")
+        self.toolbar.addAction(start_tool)
+
+        # 종료 버튼
+        stop_tool = QAction(QIcon("./img/stop.png"), "&Stop", self)
+        stop_tool.setShortcut("Ctrl+W")
+        stop_tool.setToolTip("Crawler Stop")
+        self.toolbar.addAction(stop_tool)
+
+        # 저장 버튼
+        save_tool = QAction(QIcon("./img/save.png"), "&Save", self)
+        save_tool.setShortcut("Ctrl+S")
+        save_tool.setToolTip("File Save")
+        self.toolbar.addAction(save_tool)
+
+        # 리셋 버튼
+        reset_tool = QAction(QIcon("./img/reset.png"), "&Reset", self)
+        reset_tool.setShortcut("Ctrl+R")
+        reset_tool.setToolTip("Parameter Reset")
+        self.toolbar.addAction(reset_tool)
+
     def initUI(self):
         self.setWindowTitle("크롤러 GUI") # GUI 타이틀
         self.resize(1600, 900) # GUI 크기

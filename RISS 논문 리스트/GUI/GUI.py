@@ -1,6 +1,7 @@
 # 라이브러리 불러오기
 import sys
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 
 class MainWindow(QMainWindow):
     """

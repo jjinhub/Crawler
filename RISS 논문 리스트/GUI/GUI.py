@@ -65,6 +65,15 @@ class MainWindow(QMainWindow):
         l_panel.setFixedWidth(300)  # 크기 고정
         left_layout = QVBoxLayout(l_panel)
 
+        groupbox_1 = QGroupBox('검색어')
+        form_layout = QFormLayout()
+        groupbox_1.setLayout(form_layout)
+
+        content_1 = QLineEdit(groupbox_1)
+        content_1.setPlaceholderText("검색어를 입력하세요.")
+        form_layout.addRow(content_1)
+        left_layout.addWidget(groupbox_1)
+
         return l_panel
 
     def frame(self):

@@ -30,11 +30,16 @@ class MainWindow(QMainWindow):
         # addAction 메서드를 사용하여 Option Menu가 클릭되었을 때, Start라는 텍스트의 QAction 인스턴스를 생성
         # start_action = option_menu.addAction("Start")
 
+    def tool_bar(self):
+        self.toolbar = self.addToolBar("ToolBar")
+        self.toolbar.setMovable(False) # 이동 금지
+
     def initUI(self):
         self.setWindowTitle("크롤러 GUI") # GUI 타이틀
         self.resize(1600, 900) # GUI 크기
         self.center() # 화면 가운데 정렬
-        self.menu_bar() # 메뉴바 생성성
+        self.menu_bar() # 메뉴바 생성
+        self.tool_bar() # 툴바 생성
 
 if __name__ == "__main__":
 

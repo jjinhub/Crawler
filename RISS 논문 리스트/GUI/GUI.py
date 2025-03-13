@@ -2,6 +2,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 class MainWindow(QMainWindow):
     """
@@ -59,12 +60,39 @@ class MainWindow(QMainWindow):
         reset_tool.setToolTip("Parameter Reset")
         self.toolbar.addAction(reset_tool)
 
+    def left_panel(self):
+        l_panel = QWidget()
+        l_panel.setFixedWidth(300)  # 크기 고정
+        left_layout = QVBoxLayout(l_panel)
+
+        return l_panel
+
+    def frame(self):
+        main_widget = QWidget()
+        self.setCentralWidget(main_widget)
+        main_layout = QVBoxLayout(main_widget)
+
+        # QSplitter를 사용해 좌/우 패널 분할
+        splitter = QSplitter(Qt.Horizontal)
+        splitter.setChildrenCollapsible(False)
+        splitter.setHandleWidth(0)
+
+        # 왼쪽 패널 (고정 크기)
+        l_panel = self.left_panel()
+
+        # 패널 추가
+        splitter.addWidget(l_panel)
+
+        # 메인 레이아웃에 추가
+        main_layout.addWidget(splitter)
+
     def initUI(self):
         self.setWindowTitle("크롤러 GUI") # GUI 타이틀
         self.resize(1600, 900) # GUI 크기
         self.center() # 화면 가운데 정렬
         self.menu_bar() # 메뉴바 생성
         self.tool_bar() # 툴바 생성
+        self.frame() # 프레임 2분할
 
 if __name__ == "__main__":
 

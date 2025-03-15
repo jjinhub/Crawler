@@ -123,6 +123,37 @@ class MainWindow(QMainWindow):
         panel4_layout = QVBoxLayout(panel4)
         left_layout.addWidget(panel4)
 
+        # 버튼 박스
+        groupbox_5 = QGroupBox()  # 제목 추가
+
+        # 진행 상황바 생성
+        progress_bar = QProgressBar()
+        progress_bar.setRange(0, 100)  # 기본 범위 설정 (나중에 입력값으로 변경)
+        progress_bar.setValue(0)  # 초기 값 0%
+        progress_bar.setAlignment(Qt.AlignCenter)  # 텍스트 중앙 정렬
+        progress_bar.setTextVisible(True)  # 진행률 텍스트 표시
+
+        # 버튼 생성
+        start_button = QPushButton("시작")
+        stop_button = QPushButton("정지")
+        save_button = QPushButton("저장")
+        reset_button = QPushButton("초기화")
+
+        # 가로 레이아웃 (시작, 정지 버튼 한 줄 배치)
+        hbox = QHBoxLayout()
+        hbox.addWidget(start_button)
+        hbox.addWidget(stop_button)
+
+        # 그룹박스 레이아웃 생성
+        groupbox5_layout = QVBoxLayout(groupbox_5)
+        groupbox5_layout.addWidget(progress_bar)  # 진행 상황바 추가 (윗줄)
+        groupbox5_layout.addLayout(hbox)  # 시작, 정지 버튼 추가 (중간줄)
+        groupbox5_layout.addWidget(save_button)  # 저장 버튼 추가 (아래줄)
+        groupbox5_layout.addWidget(reset_button)
+
+        # 그룹박스를 왼쪽 패널에 추가
+        left_layout.addWidget(groupbox_5)
+
         return l_panel
 
     def frame(self):

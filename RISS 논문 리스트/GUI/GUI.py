@@ -118,6 +118,11 @@ class MainWindow(QMainWindow):
         form_layout.addRow(content_3)
         left_layout.addWidget(groupbox_3)
 
+        # 빈 박스
+        panel4 = QFrame()
+        panel4_layout = QVBoxLayout(panel4)
+        left_layout.addWidget(panel4)
+
         return l_panel
 
     def frame(self):

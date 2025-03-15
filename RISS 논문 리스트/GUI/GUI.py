@@ -178,6 +178,23 @@ class MainWindow(QMainWindow):
         # 시작 버튼 클릭 시 진행상황 업데이트
         start_button.clicked.connect(start_crawling)
 
+        # 파라미터 리셋
+        def reset_fields(self):
+            # 검색어 입력란 초기화
+            content_1.clear()
+
+            # 데이터 수집 개수 초기화
+            content_3.clear()
+
+            # 진행 상황바 초기화
+            progress_bar.setValue(0)
+            progress_bar.setFormat("(0/0) 0%")  # 기본 텍스트 설정
+
+            # 라디오 버튼 초기화 (첫 번째 버튼 선택)
+            radio1.setChecked(True)
+
+        reset_button.clicked.connect(reset_fields)  # 초기화 함수 연결
+
         # 크기 비율 설정
         left_layout.setStretchFactor(panel1, 1)
         left_layout.setStretchFactor(panel2, 1)

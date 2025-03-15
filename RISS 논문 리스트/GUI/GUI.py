@@ -207,6 +207,18 @@ class MainWindow(QMainWindow):
 
         return l_panel
 
+    def right_panel(self):
+        r_panel = QWidget()
+        right_layout = QVBoxLayout(r_panel)
+
+        # QGroupBox 생성
+        groupbox = QGroupBox("데이터 수집 현황")
+
+        # QGroupBox를 메인 레이아웃에 추가
+        right_layout.addWidget(groupbox)
+
+        return r_panel
+
     def frame(self):
         main_widget = QWidget()
         self.setCentralWidget(main_widget)
@@ -220,8 +232,12 @@ class MainWindow(QMainWindow):
         # 왼쪽 패널 (고정 크기)
         l_panel = self.left_panel()
 
+        # 오른쪽 패널 (확장 가능)
+        r_panel = self.right_panel()
+
         # 패널 추가
         splitter.addWidget(l_panel)
+        splitter.addWidget(r_panel)
 
         # 메인 레이아웃에 추가
         main_layout.addWidget(splitter)

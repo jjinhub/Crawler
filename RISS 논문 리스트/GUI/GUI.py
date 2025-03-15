@@ -158,6 +158,26 @@ class MainWindow(QMainWindow):
         # 그룹박스를 왼쪽 패널에 추가
         left_layout.addWidget(groupbox_5)
 
+        # --- 진행상황 업데이트 함수 (3번째 입력값 기준) ---
+        def start_crawling():
+            total = content_3.text()
+            if not total.isdigit():
+                QMessageBox.warning(None, "입력 오류", "올바른 숫자를 입력하세요.")
+                return
+
+            total = int(total)
+            progress_bar.setRange(0, total)  # 입력된 값으로 범위 설정
+            progress_bar.setValue(0)  # 초기화
+
+            for i in range(total + 1):
+                progress_bar.setValue(i)  # 값 업데이트
+                progress_bar.setFormat("({}/{}) {:.2f}%".format(i, content_3.text(), (i/int(content_3.text()))*100))
+                progress_bar.setAlignment(Qt.AlignCenter)  # 텍스트 중앙 정렬
+                QApplication.processEvents()  # UI 업데이트
+
+        # 시작 버튼 클릭 시 진행상황 업데이트
+        start_button.clicked.connect(start_crawling)
+
         # 크기 비율 설정
         left_layout.setStretchFactor(panel1, 1)
         left_layout.setStretchFactor(panel2, 1)

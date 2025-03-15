@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
         left_layout = QVBoxLayout(l_panel)
 
         # 검색어 입력 박스
+        panel1 = QFrame()
         groupbox_1 = QGroupBox('검색어')
         form_layout = QFormLayout()
         groupbox_1.setLayout(form_layout)
@@ -82,6 +83,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(groupbox_1)
 
         # 정렬 기준 박스
+        panel2 = QFrame()
         groupbox_2 = QGroupBox('정렬 기준')
 
         # 라디오 버튼 생성
@@ -109,6 +111,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(groupbox_2)
 
         # 데이터 수집 개수 입력 박스
+        panel3 = QFrame()
         groupbox_3 = QGroupBox('데이터 수집 개수')
         form_layout = QFormLayout()
         groupbox_3.setLayout(form_layout)
@@ -124,6 +127,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(panel4)
 
         # 버튼 박스
+        panel5 = QFrame()
         groupbox_5 = QGroupBox()  # 제목 추가
 
         # 진행 상황바 생성
@@ -153,6 +157,16 @@ class MainWindow(QMainWindow):
 
         # 그룹박스를 왼쪽 패널에 추가
         left_layout.addWidget(groupbox_5)
+
+        # 크기 비율 설정
+        left_layout.setStretchFactor(panel1, 1)
+        left_layout.setStretchFactor(panel2, 1)
+        left_layout.setStretchFactor(panel3, 1)
+        left_layout.setStretchFactor(panel4, 20)
+        left_layout.setStretchFactor(panel5, 1)
+
+        # 간격 설정 (예: 레이아웃 간 간격을 10픽셀로 설정)
+        left_layout.setSpacing(20)
 
         return l_panel
 

@@ -214,6 +214,32 @@ class MainWindow(QMainWindow):
         # QGroupBox 생성
         groupbox = QGroupBox("데이터 수집 현황")
 
+        # QTableWidget 생성
+        table = QTableWidget()
+        table.setRowCount(5)
+        table.setColumnCount(3)
+        table.setHorizontalHeaderLabels(["이름", "나이", "직업"])
+
+        # 예시 데이터 삽입
+        data = [
+            ["김철수", "25", "개발자"],
+            ["이영희", "30", "디자이너"],
+            ["박민수", "27", "마케터"],
+            ["최수진", "29", "기획자"],
+            ["정하늘", "24", "연구원"]
+        ]
+
+        for row, row_data in enumerate(data):
+            for col, value in enumerate(row_data):
+                table.setItem(row, col, QTableWidgetItem(value))
+
+        # 셀 편집 불가능하도록 설정
+        table.setEditTriggers(QTableWidget.NoEditTriggers)
+
+        # QGroupBox에 QTableWidget 추가
+        groupbox_layout = QVBoxLayout(groupbox)
+        groupbox_layout.addWidget(table)
+
         # QGroupBox를 메인 레이아웃에 추가
         right_layout.addWidget(groupbox)
 

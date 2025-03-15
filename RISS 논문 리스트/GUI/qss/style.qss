@@ -21,3 +21,39 @@ QLineEdit {
 QRadioButton {
     font-weight: normal;
 }
+
+QPushButton {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+QPushButton:hover {
+    background-color: #ddd;
+}
+QPushButton:pressed {
+    background-color: #bbb;  /* 눌렀을 때 색 변경 */
+}
+
+QTableWidget {
+    border: 2px solid black;
+}
+QTableWidget::item {
+    border: 1px solid lightgray;
+}
+QTableWidget::horizontalHeader {
+    font-weight: bold;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+QTableWidget::verticalHeader {
+    font-weight: bold;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+QTableWidget::item:selected {
+    background-color: #50B4FF;
+    color: white;
+}
